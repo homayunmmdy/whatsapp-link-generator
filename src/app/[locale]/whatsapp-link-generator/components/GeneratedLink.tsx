@@ -1,5 +1,6 @@
 // components/GeneratedLink.tsx
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 interface GeneratedLinkProps {
   link: string;
@@ -11,6 +12,7 @@ export default function GeneratedLink({ link }: GeneratedLinkProps) {
   const copyToClipboard = () => {
     navigator.clipboard.writeText(link);
     setCopied(true);
+    toast.success("Link copied to clipboard!");
     setTimeout(() => setCopied(false), 2000);
   };
 
@@ -42,6 +44,7 @@ export default function GeneratedLink({ link }: GeneratedLinkProps) {
           </>
         )}
       </button>
+      <Toaster position="top-center" />
     </div>
   );
 }
