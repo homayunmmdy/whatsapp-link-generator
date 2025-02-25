@@ -225,7 +225,7 @@ export default function WhatsAppLinkGenerator() {
                 
                 <div className="mt-6 rounded-lg border border-gray-200 bg-white p-4">
                   <p className="text-sm italic text-gray-500">
-                    "The WhatsApp Link Generator is an elegant solution for professionals who want to provide a direct communication channel without the friction of contact saving."
+                  &quot;The WhatsApp Link Generator is an elegant solution for professionals who want to provide a direct communication channel without the friction of contact saving.&quot;
                   </p>
                 </div>
               </div>
