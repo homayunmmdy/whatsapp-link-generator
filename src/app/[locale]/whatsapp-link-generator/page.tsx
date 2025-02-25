@@ -6,7 +6,7 @@ import MessageInput from "./components/MessageInput";
 import GeneratedLink from "./components/GeneratedLink";
 import CountrySelect from "@/components/CountrySelect";
 import InfoSection from "./components/InfoSection";
-import { useGetCountries } from "@/hooks/useGetCountries";
+import { useGetCountries } from "@/app/hooks/countries";
 
 
 
@@ -49,7 +49,7 @@ export default function WhatsAppLinkGenerator() {
                 type="submit"
                 className="w-full rounded-lg bg-black px-6 py-3 font-medium text-white shadow-md transition duration-200 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
               >
-                Generate Link
+                {t('generateLink')}
               </button>
 
               {/* Generated Link Section - Visible on mobile */}

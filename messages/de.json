@@ -41,6 +41,12 @@
     "perfect_des2": "E-Mail-Signaturen und Social-Media-Profile",
     "perfect_des3": "Websites und Online-Portfolios",
     "perfect_des4": "Vereinfachung der Kundenkommunikation",
-    "slog": "Der WhatsApp-Link-Generator ist eine elegante Lösung für Fachleute, die einen direkten Kommunikationskanal ohne den Aufwand des Kontaktspeicherns bereitstellen möchten."
+    "slog": "Der WhatsApp-Link-Generator ist eine elegante Lösung für Fachleute, die einen direkten Kommunikationskanal ohne den Aufwand des Kontaktspeicherns bereitstellen möchten.",
+    "country": "Land",
+    "phoneNumber": "Telefonnummer",
+    "enterPhoneNumber": "Telefonnummer eingeben (ohne führende Null)",
+    "messageOptional": "Nachricht (optional)",
+    "enterPrefilledMessage": "Eine vorausgefüllte Nachricht eingeben...",
+    "generateLink": "Link generieren"
   }
 }

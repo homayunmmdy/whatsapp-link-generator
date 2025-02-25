@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 interface Country {
   name: string;
   code: string;
@@ -10,9 +12,10 @@ interface CountrySelectProps {
 }
 
 export default function CountrySelect({ countries, value, onChange }: CountrySelectProps) {
+  const t = useTranslations('whatsappLinkGenerator');
   return (
     <div>
-      <label className="mb-1 block text-sm font-medium text-gray-700">Country</label>
+      <label className="mb-1 block text-sm font-medium text-gray-700">{t('country')}</label>
       <div className="relative">
         <select
           value={value}

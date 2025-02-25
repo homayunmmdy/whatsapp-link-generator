@@ -40,6 +40,12 @@
     "perfect_des2": "Email signatures and social media profiles",
     "perfect_des3": "Websites and online portfolios",
     "perfect_des4": "Streamlining customer communication",
-    "slog": "The WhatsApp Link Generator is an elegant solution for professionals who want to provide a direct communication channel without the friction of contact saving."
+    "slog": "The WhatsApp Link Generator is an elegant solution for professionals who want to provide a direct communication channel without the friction of contact saving.",
+    "country": "Country",
+    "phoneNumber": "Phone Number",
+    "enterPhoneNumber": "Enter phone number (without leading zero)",
+    "messageOptional": "Message (Optional)",
+    "enterPrefilledMessage": "Eine vorausgefüllte Nachricht eingeben...",
+    "generateLink": "Generate Link"
   }
 }
