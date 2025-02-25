@@ -1,5 +1,22 @@
 {
-    "HomePage": {
-      "title": "Hello"
-    }
+  "HomePage": {
+    "title": "Hello"
+  },
+  "whatsappLinkGenerator": {
+    "title": "WhatsApp Link Generator",
+    "titr": "Create professional custom chat links instantly",
+    "about_title": "About WhatsApp Link Generator",
+    "description": "WhatsApp requires users to save your phone number before messaging you. This tool eliminates that step by creating direct chat links that work instantly.",
+    "work_title": "How It Works",
+    "work_des1": "Select your country code",
+    "work_des2": "Enter your phone number without leading zeros",
+    "work_des3": "Add an optional pre-filled message",
+    "work_des4": "Generate and share your personalized link",
+    "perfect_title": "Perfect For",
+    "perfect_des1": "Business cards and marketing materials",
+    "perfect_des2": "Email signatures and social media profiles",
+    "perfect_des3": "Websites and online portfolios",
+    "perfect_des4": "Streamlining customer communication",
+    "slog": "The WhatsApp Link Generator is an elegant solution for professionals who want to provide a direct communication channel without the friction of contact saving."
   }
+}
