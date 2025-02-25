@@ -2,6 +2,29 @@
   "HomePage": {
     "title": "Hello"
   },
+  "Countries": {
+    "afghanistan": "Afghanistan",
+    "australia": "Australia",
+    "brazil": "Brazil",
+    "canada": "Canada",
+    "china": "China",
+    "france": "France",
+    "germany": "Germany",
+    "india": "India",
+    "iran": "Iran",
+    "italy": "Italy",
+    "japan": "Japan",
+    "mexico": "Mexico",
+    "russia": "Russia",
+    "saudiArabia": "Saudi Arabia",
+    "southAfrica": "South Africa",
+    "southKorea": "South Korea",
+    "spain": "Spain",
+    "turkey": "Turkey",
+    "unitedArabEmirates": "United Arab Emirates",
+    "unitedKingdom": "United Kingdom",
+    "unitedStates": "United States"
+  },
   "whatsappLinkGenerator": {
     "title": "WhatsApp Link Generator",
     "titr": "Create professional custom chat links instantly",

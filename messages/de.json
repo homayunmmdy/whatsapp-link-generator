@@ -1,22 +1,46 @@
 {
-    "HomePage": {
-      "title": "Hallo"
-    },
-    "whatsappLinkGenerator": {
-      "title": "WhatsApp Link Generator",
-      "titr": "Erstellen Sie sofort professionelle, benutzerdefinierte Chat-Links",
-      "about_title": "Über den WhatsApp-Link-Generator",
-      "description": "WhatsApp verlangt von Nutzern, Ihre Telefonnummer zu speichern, bevor sie Ihnen Nachrichten senden können. Dieses Tool eliminiert diesen Schritt, indem es direkte Chat-Links erstellt, die sofort funktionieren.",
-      "work_title": "So funktioniert es",
-      "work_des1": "Wählen Sie Ihre Landesvorwahl",
-      "work_des2": "Geben Sie Ihre Telefonnummer ohne führende Nullen ein",
-      "work_des3": "Fügen Sie eine optionale vorgefüllte Nachricht hinzu",
-      "work_des4": "Generieren und teilen Sie Ihren personalisierten Link",
-      "perfect_title": "Ideal für",
-      "perfect_des1": "Visitenkarten und Marketingmaterialien",
-      "perfect_des2": "E-Mail-Signaturen und Social-Media-Profile",
-      "perfect_des3": "Websites und Online-Portfolios",
-      "perfect_des4": "Vereinfachung der Kundenkommunikation",
-      "slog": "Der WhatsApp-Link-Generator ist eine elegante Lösung für Fachleute, die einen direkten Kommunikationskanal ohne den Aufwand des Kontaktspeicherns bereitstellen möchten."
-    }
+  "HomePage": {
+    "title": "Hallo"
+  },
+  "Countries": {
+    "afghanistan": "Afghanistan",
+    "australia": "Australien",
+    "brazil": "Brasilien",
+    "canada": "Kanada",
+    "china": "China",
+    "france": "Frankreich",
+    "germany": "Deutschland",
+    "india": "Indien",
+    "iran": "Iran",
+    "italy": "Italien",
+    "japan": "Japan",
+    "mexico": "Mexiko",
+    "russia": "Russland",
+    "saudiArabia": "Saudi-Arabien",
+    "southAfrica": "Südafrika",
+    "southKorea": "Südkorea",
+    "spain": "Spanien",
+    "turkey": "Türkei",
+    "unitedArabEmirates": "Vereinigte Arabische Emirate",
+    "unitedKingdom": "Vereinigtes Königreich",
+    "unitedStates": "Vereinigte Staaten"
+  },
+
+  "whatsappLinkGenerator": {
+    "title": "WhatsApp Link Generator",
+    "titr": "Erstellen Sie sofort professionelle, benutzerdefinierte Chat-Links",
+    "about_title": "Über den WhatsApp-Link-Generator",
+    "description": "WhatsApp verlangt von Nutzern, Ihre Telefonnummer zu speichern, bevor sie Ihnen Nachrichten senden können. Dieses Tool eliminiert diesen Schritt, indem es direkte Chat-Links erstellt, die sofort funktionieren.",
+    "work_title": "So funktioniert es",
+    "work_des1": "Wählen Sie Ihre Landesvorwahl",
+    "work_des2": "Geben Sie Ihre Telefonnummer ohne führende Nullen ein",
+    "work_des3": "Fügen Sie eine optionale vorgefüllte Nachricht hinzu",
+    "work_des4": "Generieren und teilen Sie Ihren personalisierten Link",
+    "perfect_title": "Ideal für",
+    "perfect_des1": "Visitenkarten und Marketingmaterialien",
+    "perfect_des2": "E-Mail-Signaturen und Social-Media-Profile",
+    "perfect_des3": "Websites und Online-Portfolios",
+    "perfect_des4": "Vereinfachung der Kundenkommunikation",
+    "slog": "Der WhatsApp-Link-Generator ist eine elegante Lösung für Fachleute, die einen direkten Kommunikationskanal ohne den Aufwand des Kontaktspeicherns bereitstellen möchten."
   }
+}
