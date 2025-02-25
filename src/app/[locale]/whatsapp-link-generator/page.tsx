@@ -1,6 +1,11 @@
 "use client";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
+import PhoneNumberInput from "./components/PhoneNumberInput";
+import MessageInput from "./components/MessageInput";
+import GeneratedLink from "./components/GeneratedLink";
+import CountrySelect from "@/app/components/CountrySelect";
+import InfoSection from "./components/InfoSection";
 
 interface Country {
   name: string;
@@ -35,7 +40,6 @@ export default function WhatsAppLinkGenerator() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [message, setMessage] = useState("");
   const [generatedLink, setGeneratedLink] = useState("");
-  const [copied, setCopied] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,12 +48,6 @@ export default function WhatsAppLinkGenerator() {
     const encodedMessage = encodeURIComponent(message);
     const link = `https://wa.me/${fullPhoneNumber}?text=${encodedMessage}`;
     setGeneratedLink(link);
-  };
-
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(generatedLink);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
   };
 
   const t = useTranslations('whatsappLinkGenerator');
@@ -67,50 +65,9 @@ export default function WhatsAppLinkGenerator() {
           {/* Form Column */}
           <div className="w-full p-6 md:w-1/2 md:p-8">
             <form onSubmit={handleSubmit} className="space-y-5">
-              <div>
-                <label className="mb-1 block text-sm font-medium text-gray-700">Country</label>
-                <div className="relative">
-                  <select
-                    value={countryCode}
-                    onChange={(e) => setCountryCode(e.target.value)}
-                    className="w-full appearance-none rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-700 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gray-400"
-                  >
-                    {countries.map((country) => (
-                      <option key={country.code} value={country.code}>
-                        {country.name} ({country.code})
-                      </option>
-                    ))}
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
-                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <label className="mb-1 block text-sm font-medium text-gray-700">Phone Number</label>
-                <input
-                  type="text"
-                  value={phoneNumber}
-                  onChange={(e) => setPhoneNumber(e.target.value)}
-                  placeholder="Enter phone number (without leading zero)"
-                  className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-700 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gray-400"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="mb-1 block text-sm font-medium text-gray-700">Message (Optional)</label>
-                <textarea
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Enter a pre-filled message..."
-                  className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-700 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gray-400"
-                  rows={4}
-                />
-              </div>
+              <CountrySelect countries={countries} value={countryCode} onChange={setCountryCode} />
+              <PhoneNumberInput value={phoneNumber} onChange={setPhoneNumber} />
+              <MessageInput value={message} onChange={setMessage} />
 
               <button
                 type="submit"
@@ -122,34 +79,7 @@ export default function WhatsAppLinkGenerator() {
               {/* Generated Link Section - Visible on mobile */}
               {generatedLink && (
                 <div className="mt-6 md:hidden">
-                  <div className="rounded-xl border border-gray-200 bg-gray-50 p-4">
-                    <label className="mb-2 block text-sm font-medium text-gray-700">Your WhatsApp Link</label>
-                    <div className="break-all rounded-lg border border-gray-200 bg-white p-3 text-sm">
-                      <a href={generatedLink} target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-700">
-                        {generatedLink}
-                      </a>
-                    </div>
-                    <button
-                      onClick={copyToClipboard}
-                      className="mt-3 flex w-full items-center justify-center gap-2 rounded-lg bg-gray-200 py-2 font-medium text-gray-800 transition duration-200 hover:bg-gray-300"
-                    >
-                      {copied ? (
-                        <>
-                          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                          </svg>
-                          Copied!
-                        </>
-                      ) : (
-                        <>
-                          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path>
-                          </svg>
-                          Copy Link
-                        </>
-                      )}
-                    </button>
-                  </div>
+                  <GeneratedLink link={generatedLink} />
                 </div>
               )}
             </form>
@@ -160,78 +90,12 @@ export default function WhatsAppLinkGenerator() {
             {/* Generated Link Section - Hidden on mobile, visible on desktop */}
             {generatedLink && (
               <div className="mb-8 hidden md:block">
-                <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
-                  <label className="mb-2 block text-sm font-medium text-gray-700">Your WhatsApp Link</label>
-                  <div className="break-all rounded-lg border border-gray-200 bg-gray-50 p-3 text-sm">
-                    <a href={generatedLink} target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-700">
-                      {generatedLink}
-                    </a>
-                  </div>
-                  <button
-                    onClick={copyToClipboard}
-                    className="mt-3 flex w-full items-center justify-center gap-2 rounded-lg bg-gray-200 py-2 font-medium text-gray-800 transition duration-200 hover:bg-gray-300"
-                  >
-                    {copied ? (
-                      <>
-                        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        Copied!
-                      </>
-                    ) : (
-                      <>
-                        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path>
-                        </svg>
-                        Copy Link
-                      </>
-                    )}
-                  </button>
-                </div>
+                <GeneratedLink link={generatedLink} />
               </div>
             )}
 
             {/* Info Section */}
-            <div>
-              <h2 className="mb-4 flex items-center text-xl font-bold text-gray-800">
-                <svg className="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-              {t('about_title')}
-              </h2>
-              
-              <div className="prose prose-sm text-gray-600">
-                <p className="mb-4">
-                  {t('description')}
-                </p>
-                
-                <div className="mb-6">
-                  <h3 className="mb-2 border-b border-gray-200 pb-1 text-lg font-semibold text-gray-800">{t('work_title')}</h3>
-                  <ol className="list-decimal space-y-1 pl-5">
-                    <li>{t('work_des1')}</li>
-                    <li>{t('work_des2')}</li>
-                    <li>{t('work_des3')}</li>
-                    <li>{t('work_des4')}</li>
-                  </ol>
-                </div>
-                
-                <div>
-                  <h3 className="mb-2 border-b border-gray-200 pb-1 text-lg font-semibold text-gray-800">{t('perfect_title')}</h3>
-                  <ul className="list-disc space-y-1 pl-5">
-                  <li>{t('perfect_des1')}</li>
-                    <li>{t('perfect_des2')}</li>
-                    <li>{t('perfect_des3')}</li>
-                    <li>{t('perfect_des4')}</li>
-                  </ul>
-                </div>
-                
-                <div className="mt-6 rounded-lg border border-gray-200 bg-white p-4">
-                  <p className="text-sm italic text-gray-500">
-                  &quot;{t('slog')}&quot;
-                  </p>
-                </div>
-              </div>
-            </div>
+            <InfoSection />
           </div>
         </div>
       </div>
