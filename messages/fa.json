@@ -2,6 +2,9 @@
   "HomePage": {
     "title": "سلام"
   },
+  "config": {
+    "name" : "هلپر"
+  },
   "Countries": {
     "afghanistan": "افغانستان",
     "australia": "استرالیا",

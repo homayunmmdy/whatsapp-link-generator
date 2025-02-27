@@ -2,6 +2,9 @@
   "HomePage": {
     "title": "Hallo"
   },
+  "config": {
+    "name" : "Helper"
+  },
   "Countries": {
     "afghanistan": "Afghanistan",
     "australia": "Australien",
