@@ -1,15 +1,15 @@
 'use client';
 
 import { LanguagesConfig } from '@/app/config/langs';
+import useGetCurrentLanuge from '@/app/hooks/useGetCurrentLanuge';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, {  useState } from 'react';
 
 const LanguageSwitcher = () => {
     const pathname = usePathname()
-    const langCode = pathname.slice(1,3)
 
-  const [currentLanguage, setCurrentLanguage] = useState<string>(langCode);
+  const [currentLanguage, setCurrentLanguage] = useState<string>(useGetCurrentLanuge);
   const [showLanguageMenu, setShowLanguageMenu] = useState(false);
 
   const changeLanguage = (langCode: string) => {

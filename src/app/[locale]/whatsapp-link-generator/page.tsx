@@ -6,7 +6,7 @@ import MessageInput from "./components/MessageInput";
 import GeneratedLink from "./components/GeneratedLink";
 import CountrySelect from "@/components/CountrySelect";
 import InfoSection from "./components/InfoSection";
-import { useGetCountries } from "@/app/hooks/countries";
+import { useGetCountries } from "@/app/hooks/useGetCountries";
 
 
 

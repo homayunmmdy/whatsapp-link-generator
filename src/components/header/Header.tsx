@@ -7,21 +7,23 @@ import MainMenu from './MainMenu';
 import LanguageSwitcher from './LanguageSwitcher';
 import MobileMenuButton from './MobileMenuButton';
 import MobileMenu from './MobileMenu';
+import useGetCurrentLanuge from '@/app/hooks/useGetCurrentLanuge';
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const currentLange = useGetCurrentLanuge()
 
   const config = SiteConfig();
   const mainMenuItems = [
-    { name: config.pages.home, href: '/' },
+    { name: config.pages.home, href: `/${currentLange}` },
   ];
 
   const dropdownMenuItems = [
     {
       name: config.pages.technology,
       items: [
-        { name: config.pages.whatsappLinkGenerator, href: '/tools/whatsapp-link-generator' },
+        { name: config.pages.whatsappLinkGenerator, href: `/${currentLange}/whatsapp-link-generator` },
       ],
     },
   ];
@@ -50,7 +52,7 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <nav className="flex h-16 items-center justify-between">
           <div className="flex-shrink-0">
-            <Link href="/" className="text-xl font-bold">
+            <Link href={`/${currentLange}`} className="text-xl font-bold">
               {config.name}
             </Link>
           </div>
