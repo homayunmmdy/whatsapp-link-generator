@@ -3,7 +3,10 @@
     "title": "سلام"
   },
   "config": {
-    "name" : "هلپر"
+    "name" : "هلپر",
+    "pages": {
+      "home": "خانه"
+    }
   },
   "Countries": {
     "afghanistan": "افغانستان",

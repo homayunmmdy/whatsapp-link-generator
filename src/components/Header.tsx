@@ -23,8 +23,9 @@ const Header = () => {
   const [showLanguageMenu, setShowLanguageMenu] = useState(false);
 
 
+  const config = SiteConfig();
   const mainMenuItems: MenuItem[] = [
-    { name: 'Home', href: '/' },
+    { name: config.pages.home, href: '/' },
     // { name: 'About', href: '/about' },
     // { name: 'Contacts', href: '/contacts' },
   ];
@@ -62,7 +63,6 @@ const Header = () => {
     setShowLanguageMenu(false);
   };
 
-  const config = SiteConfig();
 
   return (
     <header 

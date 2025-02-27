@@ -3,7 +3,10 @@
     "title": "Hello"
   },
   "config": {
-    "name" : "Helper"
+    "name" : "Helper",
+    "pages": {
+      "home": "Home"
+    }
   },
   "Countries": {
     "afghanistan": "Afghanistan",
