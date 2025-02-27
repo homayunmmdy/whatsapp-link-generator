@@ -19,9 +19,9 @@ const Header = () => {
 
   const dropdownMenuItems = [
     {
-      name: 'Technology',
+      name: config.pages.technology,
       items: [
-        { name: 'WhatsApp Link Generator', href: '/tools/whatsapp-link-generator' },
+        { name: config.pages.whatsappLinkGenerator, href: '/tools/whatsapp-link-generator' },
       ],
     },
   ];

@@ -5,7 +5,9 @@
   "config": {
     "name" : "Helper",
     "pages": {
-      "home": "Home"
+      "home": "Home",
+      "technology": "Technology",
+      "whatsappLinkGenerator": "WhatsApp Link Generator"
     }
   },
   "Countries": {

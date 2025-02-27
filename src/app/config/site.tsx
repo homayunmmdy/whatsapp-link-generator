@@ -5,14 +5,16 @@ export const SiteConfig = () => {
   const config: ConfigType = {
     name: t("name"),
     pages: {
-      home : t('pages.home')
+      home : t('pages.home'),
+      technology: t('pages.technology'),
+      whatsappLinkGenerator: t('pages.whatsappLinkGenerator'),
     }
   };
 
   return config;
 };
 
-type PageKey = "home" ;
+type PageKey = "home"|'whatsappLinkGenerator'|'technology' ;
 
 type ConfigType = {
   name: string;

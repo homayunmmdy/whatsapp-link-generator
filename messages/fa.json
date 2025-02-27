@@ -5,7 +5,9 @@
   "config": {
     "name" : "هلپر",
     "pages": {
-      "home": "خانه"
+      "home": "خانه",
+      "technology": "تکنولوژی",
+      "whatsappLinkGenerator": "ساخت لینک واتساپ"
     }
   },
   "Countries": {
