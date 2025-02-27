@@ -1,16 +1,23 @@
 'use client';
 
 import { LanguagesConfig } from '@/app/config/langs';
-import React, { useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import React, {  useState } from 'react';
 
 const LanguageSwitcher = () => {
-  const [currentLanguage, setCurrentLanguage] = useState<string>('en');
+    const pathname = usePathname()
+    const langCode = pathname.slice(1,3)
+
+  const [currentLanguage, setCurrentLanguage] = useState<string>(langCode);
   const [showLanguageMenu, setShowLanguageMenu] = useState(false);
 
   const changeLanguage = (langCode: string) => {
     setCurrentLanguage(langCode);
     setShowLanguageMenu(false);
   };
+ 
+  const url = pathname.slice(4)
 
   return (
     <div className="relative">
@@ -39,13 +46,14 @@ const LanguageSwitcher = () => {
         <div className="absolute right-0 z-10 mt-2 w-36 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5">
           <div className="py-1">
             {LanguagesConfig.map((lang) => (
-              <button
+              <Link
                 key={lang.code}
+                href={`/${lang.code}/${url}`}
                 onClick={() => changeLanguage(lang.code)}
                 className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
               >
                 {lang.name}
-              </button>
+              </Link>
             ))}
           </div>
         </div>
