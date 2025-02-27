@@ -23,7 +23,7 @@ const LanguageSwitcher = () => {
     <div className="relative">
       <button
         onClick={() => setShowLanguageMenu(!showLanguageMenu)}
-        className="flex items-center text-gray-300 transition-colors duration-200 hover:text-white"
+        className="mx-3 flex items-center text-gray-300 transition-colors duration-200 hover:text-white"
       >
         <span className="mr-1 font-medium">{currentLanguage.toUpperCase()}</span>
         <svg 
@@ -43,7 +43,7 @@ const LanguageSwitcher = () => {
       </button>
       
       {showLanguageMenu && (
-        <div className="absolute right-0 z-10 mt-2 w-36 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+        <div className="absolute left-0 right-0 z-10 mt-2 w-36 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5">
           <div className="py-1">
             {LanguagesConfig.map((lang) => (
               <Link

@@ -31,7 +31,7 @@ const MainMenu = ({ mainMenuItems, dropdownMenuItems }: MainMenuProps) => {
 
   return (
     <div className="hidden flex-1 justify-center md:flex">
-      <ul className="flex items-center space-x-10">
+      <ul className="flex items-center gap-4">
         {mainMenuItems.map((item) => (
           <li key={item.name}>
             <Link
