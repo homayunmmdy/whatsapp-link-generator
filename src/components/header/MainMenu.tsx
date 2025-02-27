@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { SiteConfig } from '@/app/config/site';
 
 type MenuItem = {
   name: string;
@@ -14,22 +13,13 @@ type DropdownItem = {
   items: MenuItem[];
 };
 
-const MainMenu = () => {
+type MainMenuProps = {
+  mainMenuItems: MenuItem[];
+  dropdownMenuItems: DropdownItem[];
+};
+
+const MainMenu = ({ mainMenuItems, dropdownMenuItems }: MainMenuProps) => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-
-  const config = SiteConfig();
-  const mainMenuItems: MenuItem[] = [
-    { name: config.pages.home, href: '/' },
-  ];
-
-  const dropdownMenuItems: DropdownItem[] = [
-    {
-      name: 'Technology',
-      items: [
-        { name: 'WhatsApp Link Generator', href: '/tools/whatsapp-link-generator' },
-      ],
-    },
-  ];
 
   const handleMouseEnter = (dropdownName: string) => {
     setActiveDropdown(dropdownName);

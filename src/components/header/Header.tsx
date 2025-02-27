@@ -6,11 +6,25 @@ import { SiteConfig } from '@/app/config/site';
 import MainMenu from './MainMenu';
 import LanguageSwitcher from './LanguageSwitcher';
 import MobileMenuButton from './MobileMenuButton';
+import MobileMenu from './MobileMenu';
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const config = SiteConfig();
+  const mainMenuItems = [
+    { name: config.pages.home, href: '/' },
+  ];
+
+  const dropdownMenuItems = [
+    {
+      name: 'Technology',
+      items: [
+        { name: 'WhatsApp Link Generator', href: '/tools/whatsapp-link-generator' },
+      ],
+    },
+  ];
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +36,10 @@ const Header = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   return (
     <header 
@@ -37,12 +55,18 @@ const Header = () => {
             </Link>
           </div>
           
-          <MainMenu />
+          <MainMenu mainMenuItems={mainMenuItems} dropdownMenuItems={dropdownMenuItems} />
           
           <LanguageSwitcher />
           
-          <MobileMenuButton />
+          <MobileMenuButton onClick={toggleMobileMenu} />
         </nav>
+
+        <MobileMenu
+          isOpen={isMobileMenuOpen}
+          mainMenuItems={mainMenuItems}
+          dropdownMenuItems={dropdownMenuItems}
+        />
       </div>
     </header>
   );

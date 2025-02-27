@@ -2,11 +2,16 @@
 
 import React from 'react';
 
-const MobileMenuButton = () => {
+type MobileMenuButtonProps = {
+  onClick: () => void;
+};
+
+const MobileMenuButton = ({ onClick }: MobileMenuButtonProps) => {
   return (
     <div className="md:hidden">
       <button
         type="button"
+        onClick={onClick}
         className="text-gray-300 hover:text-white focus:outline-none"
       >
         <svg
