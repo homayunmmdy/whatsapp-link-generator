@@ -33,7 +33,7 @@ const MainMenu = ({ mainMenuItems, dropdownMenuItems }: MainMenuProps) => {
     <div className="hidden flex-1 justify-center md:flex">
       <ul className="flex items-center gap-4">
         {mainMenuItems.map((item) => (
-          <li key={item.name}>
+          <li key={item.name} className='py-3'>
             <Link
               href={item.href}
               className="font-medium text-gray-300 transition-colors duration-200 hover:text-white"
@@ -46,7 +46,7 @@ const MainMenu = ({ mainMenuItems, dropdownMenuItems }: MainMenuProps) => {
         {dropdownMenuItems.map((dropdown) => (
           <li 
             key={dropdown.name}
-            className="relative"
+            className="relative py-3"
             onMouseEnter={() => handleMouseEnter(dropdown.name)}
             onMouseLeave={handleMouseLeave}
           >
@@ -71,7 +71,7 @@ const MainMenu = ({ mainMenuItems, dropdownMenuItems }: MainMenuProps) => {
             </button>
             
             {activeDropdown === dropdown.name && (
-              <div className="absolute left-1/2 z-10 mt-2 w-48 -translate-x-1/2 transform rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+              <div className="absolute left-1/2 z-10 w-48 -translate-x-1/2 transform rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5">
                 <div className="py-1">
                   {dropdown.items.map((item) => (
                     <Link
