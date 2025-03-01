@@ -2,18 +2,16 @@ import Header from "@/components/header/Header";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
+import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import { routing } from "../../i18n/routing";
 import "./globals.css";
 
+const IRANSANS = localFont({ src: "./IRANSansX.woff2" });
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
@@ -40,9 +38,11 @@ export default async function RootLayout({ children, params }: LayoutProps) {
   const messages = await getMessages();
 
   return (
-    <html lang={locale} dir={locale == 'fa' ? 'rtl' : "ltr"}>
+    <html lang={locale} dir={locale == "fa" ? "rtl" : "ltr"}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${
+          locale == "fa" ? IRANSANS.className : geistSans.variable
+        } `}
       >
         <NextIntlClientProvider messages={messages}>
           <Header />
