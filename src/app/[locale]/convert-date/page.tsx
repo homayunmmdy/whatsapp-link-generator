@@ -1,91 +1,10 @@
 "use client"
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { DateConverter } from "./util"; // Import the DateConverter class
 
-const converters = [
-  { id: "shamsi", label: "شمسی به میلادی و قمری" },
-  { id: "miladi", label: "میلادی به شمسی و قمری" },
-  { id: "ghamari", label: "قمری به شمسی و میلادی" },
-];
-
-// Enhanced conversion function with day support
-const convertDate = (type: string, year: number, month: number, day: number) => {
-  // Format the date with year, month, and day in different formats
-  const formatDate = (year: number, month: number, day: number) => {
-    // Format: YYYY Month DD
-    const monthNames = ["January", "February", "March", "April", "May", "June", 
-                       "July", "August", "September", "October", "November", "December"];
-    const longFormat = `${year} ${monthNames[month - 1]} ${day}`;
-    
-    // Format: YY/MM/DD
-    const shortFormat = `${String(year).slice(-2)}/${String(month).padStart(2, '0')}/${String(day).padStart(2, '0')}`;
-    
-    return { longFormat, shortFormat };
-  };
-
-  switch (type) {
-    case "shamsi":
-      // Simple conversion logic - in a real app, this would use proper calendar conversion
-      const miladiYear = year + 621;
-      const ghamariYear = year + 622;
-      
-      return { 
-        miladi: {
-          ...formatDate(miladiYear, month, day),
-          year: miladiYear,
-          month,
-          day
-        }, 
-        ghamari: {
-          ...formatDate(ghamariYear, month, day),
-          year: ghamariYear,
-          month,
-          day
-        } 
-      };
-    case "miladi":
-      const shamsiYear = year - 621;
-      const ghamariYear2 = year - 1;
-      
-      return { 
-        shamsi: {
-          ...formatDate(shamsiYear, month, day),
-          year: shamsiYear,
-          month,
-          day
-        }, 
-        ghamari: {
-          ...formatDate(ghamariYear2, month, day),
-          year: ghamariYear2,
-          month,
-          day
-        } 
-      };
-    case "ghamari":
-      const shamsiYear2 = year - 622;
-      const miladiYear2 = year + 1;
-      
-      return { 
-        shamsi: {
-          ...formatDate(shamsiYear2, month, day),
-          year: shamsiYear2,
-          month,
-          day
-        }, 
-        miladi: {
-          ...formatDate(miladiYear2, month, day),
-          year: miladiYear2,
-          month,
-          day
-        } 
-      };
-    default:
-      return {};
-  }
-};
-
-export default function DateConverter() {
-  const [selectedConverter, setSelectedConverter] = useState(converters[0].id);
+export default function DateConverterPage() {
+  const [selectedConverter, setSelectedConverter] = useState(DateConverter.options[0].id);
   const [year, setYear] = useState(1403);
   const [month, setMonth] = useState(1);
   const [day, setDay] = useState(1);
@@ -95,17 +14,10 @@ export default function DateConverter() {
   const handleConvert = () => {
     setIsAnimating(true);
     setTimeout(() => {
-      const conversion = convertDate(selectedConverter, year, month, day);
+      const conversion = DateConverter.convertDate(selectedConverter, year, month, day); // Use the DateConverter class
       setResult(conversion);
       setIsAnimating(false);
     }, 300);
-  };
-
-  // Get the days in a month (simplified)
-  const getDaysInMonth = (year: number, month: number) => {
-    // This is simplified - a real implementation would consider leap years
-    const daysInMonth = [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29];
-    return daysInMonth[month - 1] || 30;
   };
 
   return (
@@ -126,7 +38,9 @@ export default function DateConverter() {
           </svg>
         </motion.div>
         
-        <h1 className="mb-3 text-3xl font-bold text-teal-700">{converters.find((c) => c.id === selectedConverter)?.label}</h1>
+        <h1 className="mb-3 text-3xl font-bold text-teal-700">
+          {DateConverter.options.find((c) => c.id === selectedConverter)?.label}
+        </h1>
         
         <div className="mb-2 w-full">
           <select
@@ -134,7 +48,7 @@ export default function DateConverter() {
             onChange={(e) => setSelectedConverter(e.target.value)}
             className="w-full rounded-xl border-0 bg-teal-50 p-4 text-lg transition-all duration-200 hover:bg-teal-100 focus:ring-2 focus:ring-teal-500"
           >
-            {converters.map((converter) => (
+            {DateConverter.options.map((converter) => (
               <option key={converter.id} value={converter.id}>{converter.label}</option>
             ))}
           </select>
@@ -161,7 +75,7 @@ export default function DateConverter() {
                 const newMonth = Number(e.target.value);
                 setMonth(newMonth);
                 // Adjust day if it exceeds the max days in the selected month
-                const maxDays = getDaysInMonth(year, newMonth);
+                const maxDays = DateConverter.getDaysInMonth(year, newMonth); // Use the DateConverter class
                 if (day > maxDays) {
                   setDay(maxDays);
                 }
@@ -182,7 +96,7 @@ export default function DateConverter() {
               className="w-full rounded-xl border-0 bg-teal-50 p-3 text-center text-lg transition-all duration-200 hover:bg-teal-100 focus:ring-2 focus:ring-teal-500"
               placeholder="روز"
               min="1"
-              max={getDaysInMonth(year, month)}
+              max={DateConverter.getDaysInMonth(year, month)} // Use the DateConverter class
             />
           </div>
         </div>
