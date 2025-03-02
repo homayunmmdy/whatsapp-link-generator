@@ -31,7 +31,7 @@ export default function WhatsAppLinkGenerator() {
     <div className="flex min-h-screen items-center justify-center bg-gray-50 p-4 md:p-8">
       <div className="w-full max-w-6xl overflow-hidden rounded-xl bg-white shadow-xl">
         {/* Header - Full Width */}
-        <div className="bg-black px-8 py-6">
+        <div className="bg-teal-700 px-8 py-6">
           <h1 className="text-center text-2xl font-bold text-white md:text-3xl">{t('title')}</h1>
           <p className="mt-1 text-center text-sm text-gray-300">{t('titr')}</p>
         </div>
@@ -47,7 +47,7 @@ export default function WhatsAppLinkGenerator() {
 
               <button
                 type="submit"
-                className="w-full rounded-lg bg-black px-6 py-3 font-medium text-white shadow-md transition duration-200 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
+                className="w-full rounded-lg bg-teal-700 px-6 py-3 font-medium text-white shadow-md transition duration-200 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
               >
                 {t('generateLink')}
               </button>

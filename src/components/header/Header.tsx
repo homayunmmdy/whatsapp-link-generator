@@ -45,7 +45,7 @@ const Header = () => {
 
   return (
     <header 
-      className={`bg-black text-white w-full z-50 transition-all duration-300 ${
+      className={`bg-teal-700 text-white w-full z-50 transition-all duration-300 ${
         isSticky ? 'fixed top-0 shadow-lg' : 'relative'
       }`}
     >
