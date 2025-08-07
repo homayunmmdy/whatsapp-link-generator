@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WhatsApp Link Generator 💬✨
 
-## Getting Started
+![Screenshot 2025-05-16 195324](https://github.com/user-attachments/assets/83e0bdc2-e9ed-4193-bdf0-5d305dcb7fb4)
 
-First, run the development server:
+A simple, fast tool to generate direct WhatsApp chat links without requiring users to save your phone number first. 🌟
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Features 🚀
+
+- 🌍 Country code selection for international numbers
+- 🔢 Phone number validation
+- ✉️ Optional pre-filled message
+- ⚡ Instant link generation
+- 🎨 Clean, user-friendly interface
+- 🌐 Multi-language support (English, Persian, German)
+
+## How It Works 🔧
+
+1. Select your country code from the dropdown 🏳️
+2. Enter your phone number (without leading zeros) 📱
+3. Optionally add a pre-filled message 💬
+4. Click "Generate Link" to create your personalized WhatsApp URL ⚡
+5. Copy and share the link anywhere 📤
+
+## Use Cases 💼
+
+- 📇 Business cards and marketing materials
+- ✍️ Email signatures
+- 📱 Social media profiles
+- 🌐 Website contact sections
+- 🎨 Online portfolios
+- 🤝 Streamlining customer communication
+
+## Technical Details ⚙️
+
+Built with modern technologies:
+
+- ⚛️ [Next.js 15](https://nextjs.org/) 
+- 💙 TypeScript - Type-safe JavaScript
+- 🎨 Tailwind CSS - Utility-first CSS framework
+- 🌐 i18n - Internationalization support
+- 📱 Fully responsive design
+
+## Development 🛠️
+
+### Project Setup
+
+```sh
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Run Development Server
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Build for Production
 
-## Learn More
+```sh
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Start Production Server
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```sh
+npm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Supported Languages 🌍
 
-## Deploy on Vercel
+- English EN
+- Persian FA
+- German DE
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License 📜
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT Licensed - Free for personal and commercial use.
